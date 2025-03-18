@@ -102,7 +102,7 @@ env:
   deployEnv: PRODUCTION
   difyBindAddress: 0.0.0.0
   difyInnerApiKey: QaHbTe77CtuXmsfyhR7+vRjI/+XbV1AaFy691iy+kGDv2Jvy0/eAh8Y1
-  difyInnerApiUrl: http://api:5001
+  difyInnerApiUrl: http://dify-api:5001
   difyPort: "5001"
   elasticsearchHost: 0.0.0.0
   elasticsearchPassword: elastic
@@ -133,6 +133,7 @@ env:
   httpProxy: http://ssrf-proxy:3128
   httpRequestNodeMaxBinarySize: "10485760"
   httpRequestNodeMaxTextSize: "1048576"
+  httpRequestNodeSslVerify: "True"
   httpsProxy: http://ssrf-proxy:3128
   huaweiObsAccessKey: your-access-key
   huaweiObsBucketName: your-bucket-name
@@ -158,16 +159,18 @@ env:
   marketplaceApiUrl: https://marketplace.dify.ai
   marketplaceEnabled: "true"
   marketplaceUrl: https://marketplace.dify.ai
+  maxParallelLimit: "10"
   maxPluginPackageSize: "52428800"
   maxSubmitCount: "100"
+  maxToolsNum: "10"
   maxVariableSize: "204800"
   migrationEnabled: "true"
   milvusAuthorizationEnabled: "true"
   milvusEnableHybridSearch: "False"
-  milvusPassword: Milvus
+  milvusPassword: ""
   milvusToken: ""
-  milvusUri: http://127.0.0.1:19530
-  milvusUser: root
+  milvusUri: http://dify-milvus:19530
+  milvusUser: ""
   minioAccessKey: minioadmin
   minioAddress: minio:9000
   minioSecretKey: minioadmin
@@ -211,6 +214,13 @@ env:
   openaiApiBase: https://api.openai.com/v1
   opendalFsRoot: storage
   opendalScheme: fs
+  opengaussDatabase: dify
+  opengaussHost: opengauss
+  opengaussMaxConnection: "5"
+  opengaussMinConnection: "1"
+  opengaussPassword: Dify@123
+  opengaussPort: "6600"
+  opengaussUser: postgres
   opensearchBootstrapMemoryLock: "true"
   opensearchDiscoveryType: single-node
   opensearchHost: opensearch
@@ -237,10 +247,12 @@ env:
   pgdata: /var/lib/postgresql/data/pgdata
   pguser: postgres
   pgvectorDatabase: dify
-  pgvectorHost: pgvector
+  pgvectorHost: dify-pgvector
   pgvectorMaxConnection: "5"
   pgvectorMinConnection: "1"
   pgvectorPassword: difyai123456
+  pgvectorPgBigm: "false"
+  pgvectorPgBigmVersion: 1.2-20240606
   pgvectorPgdata: /var/lib/postgresql/data/pgdata
   pgvectorPguser: postgres
   pgvectorPort: "5432"
@@ -259,7 +271,7 @@ env:
   pluginDebuggingHost: 0.0.0.0
   pluginDebuggingPort: "5003"
   pluginDifyInnerApiKey: QaHbTe77CtuXmsfyhR7+vRjI/+XbV1AaFy691iy+kGDv2Jvy0/eAh8Y1
-  pluginDifyInnerApiUrl: http://api:5001
+  pluginDifyInnerApiUrl: http://dify-api:5001
   pluginMaxExecutionTimeout: "600"
   pluginMaxPackageSize: "52428800"
   pluginPprofEnabled: "false"
@@ -442,7 +454,7 @@ env:
 api:
   image:
     repository: langgenius/dify-api
-    tag: 1.0.1
+    tag: 1.1.0
     pullPolicy: IfNotPresent
   replicas: 1
   strategy:
@@ -459,7 +471,7 @@ worker:
     type: Recreate
   image:
     repository: langgenius/dify-api
-    tag: 1.0.1
+    tag: 1.1.0
     pullPolicy: IfNotPresent
   ports:
     - name: worker
@@ -494,7 +506,7 @@ db:
 pluginDaemon:
   image:
     repository: langgenius/dify-plugin-daemon
-    tag: 0.0.4-local
+    tag: 0.0.5-local
     pullPolicy: IfNotPresent
   ports:
   - name: server
@@ -557,7 +569,7 @@ web:
   replicas: 1
   image:
     repository: langgenius/dify-web
-    tag: 1.0.1
+    tag: 1.1.0
     pullPolicy: IfNotPresent
   ports:
     - name: web

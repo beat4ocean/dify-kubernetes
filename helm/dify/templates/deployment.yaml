@@ -271,6 +271,8 @@ spec:
           value: {{ quote .Values.env.httpRequestNodeMaxBinarySize }}
         - name: HTTP_REQUEST_NODE_MAX_TEXT_SIZE
           value: {{ quote .Values.env.httpRequestNodeMaxTextSize }}
+        - name: HTTP_REQUEST_NODE_SSL_VERIFY
+          value: {{ quote .Values.env.httpRequestNodeSslVerify }}
         - name: HUAWEI_OBS_ACCESS_KEY
           value: {{ quote .Values.env.huaweiObsAccessKey }}
         - name: HUAWEI_OBS_BUCKET_NAME
@@ -317,8 +319,12 @@ spec:
           value: {{ quote .Values.env.marketplaceApiUrl }}
         - name: MARKETPLACE_ENABLED
           value: {{ quote .Values.env.marketplaceEnabled }}
+        - name: MAX_PARALLEL_LIMIT
+          value: {{ quote .Values.env.maxParallelLimit }}
         - name: MAX_SUBMIT_COUNT
           value: {{ quote .Values.env.maxSubmitCount }}
+        - name: MAX_TOOLS_NUM
+          value: {{ quote .Values.env.maxToolsNum }}
         - name: MAX_VARIABLE_SIZE
           value: {{ quote .Values.env.maxVariableSize }}
         - name: MIGRATION_ENABLED
@@ -421,6 +427,20 @@ spec:
           value: {{ quote .Values.env.opendalFsRoot }}
         - name: OPENDAL_SCHEME
           value: {{ quote .Values.env.opendalScheme }}
+        - name: OPENGAUSS_DATABASE
+          value: {{ quote .Values.env.opengaussDatabase }}
+        - name: OPENGAUSS_HOST
+          value: {{ quote .Values.env.opengaussHost }}
+        - name: OPENGAUSS_MAX_CONNECTION
+          value: {{ quote .Values.env.opengaussMaxConnection }}
+        - name: OPENGAUSS_MIN_CONNECTION
+          value: {{ quote .Values.env.opengaussMinConnection }}
+        - name: OPENGAUSS_PASSWORD
+          value: {{ quote .Values.env.opengaussPassword }}
+        - name: OPENGAUSS_PORT
+          value: {{ quote .Values.env.opengaussPort }}
+        - name: OPENGAUSS_USER
+          value: {{ quote .Values.env.opengaussUser }}
         - name: OPENSEARCH_BOOTSTRAP_MEMORY_LOCK
           value: {{ quote .Values.env.opensearchBootstrapMemoryLock }}
         - name: OPENSEARCH_DISCOVERY_TYPE
@@ -485,6 +505,10 @@ spec:
           value: {{ quote .Values.env.pgvectorPgdata }}
         - name: PGVECTOR_PGUSER
           value: {{ quote .Values.env.pgvectorPguser }}
+        - name: PGVECTOR_PG_BIGM
+          value: {{ quote .Values.env.pgvectorPgBigm }}
+        - name: PGVECTOR_PG_BIGM_VERSION
+          value: {{ quote .Values.env.pgvectorPgBigmVersion }}
         - name: PGVECTOR_PORT
           value: {{ quote .Values.env.pgvectorPort }}
         - name: PGVECTOR_POSTGRES_DB
@@ -1237,6 +1261,8 @@ spec:
           value: {{ quote .Values.env.httpRequestNodeMaxBinarySize }}
         - name: HTTP_REQUEST_NODE_MAX_TEXT_SIZE
           value: {{ quote .Values.env.httpRequestNodeMaxTextSize }}
+        - name: HTTP_REQUEST_NODE_SSL_VERIFY
+          value: {{ quote .Values.env.httpRequestNodeSslVerify }}
         - name: HUAWEI_OBS_ACCESS_KEY
           value: {{ quote .Values.env.huaweiObsAccessKey }}
         - name: HUAWEI_OBS_BUCKET_NAME
@@ -1281,10 +1307,14 @@ spec:
           value: {{ quote .Values.env.marketplaceApiUrl }}
         - name: MARKETPLACE_ENABLED
           value: {{ quote .Values.env.marketplaceEnabled }}
+        - name: MAX_PARALLEL_LIMIT
+          value: {{ quote .Values.env.maxParallelLimit }}
         - name: MAX_PLUGIN_PACKAGE_SIZE
           value: {{ quote .Values.env.maxPluginPackageSize }}
         - name: MAX_SUBMIT_COUNT
           value: {{ quote .Values.env.maxSubmitCount }}
+        - name: MAX_TOOLS_NUM
+          value: {{ quote .Values.env.maxToolsNum }}
         - name: MAX_VARIABLE_SIZE
           value: {{ quote .Values.env.maxVariableSize }}
         - name: MIGRATION_ENABLED
@@ -1385,6 +1415,20 @@ spec:
           value: {{ quote .Values.env.opendalFsRoot }}
         - name: OPENDAL_SCHEME
           value: {{ quote .Values.env.opendalScheme }}
+        - name: OPENGAUSS_DATABASE
+          value: {{ quote .Values.env.opengaussDatabase }}
+        - name: OPENGAUSS_HOST
+          value: {{ quote .Values.env.opengaussHost }}
+        - name: OPENGAUSS_MAX_CONNECTION
+          value: {{ quote .Values.env.opengaussMaxConnection }}
+        - name: OPENGAUSS_MIN_CONNECTION
+          value: {{ quote .Values.env.opengaussMinConnection }}
+        - name: OPENGAUSS_PASSWORD
+          value: {{ quote .Values.env.opengaussPassword }}
+        - name: OPENGAUSS_PORT
+          value: {{ quote .Values.env.opengaussPort }}
+        - name: OPENGAUSS_USER
+          value: {{ quote .Values.env.opengaussUser }}
         - name: OPENSEARCH_BOOTSTRAP_MEMORY_LOCK
           value: {{ quote .Values.env.opensearchBootstrapMemoryLock }}
         - name: OPENSEARCH_DISCOVERY_TYPE
@@ -1449,6 +1493,10 @@ spec:
           value: {{ quote .Values.env.pgvectorPgdata }}
         - name: PGVECTOR_PGUSER
           value: {{ quote .Values.env.pgvectorPguser }}
+        - name: PGVECTOR_PG_BIGM
+          value: {{ quote .Values.env.pgvectorPgBigm }}
+        - name: PGVECTOR_PG_BIGM_VERSION
+          value: {{ quote .Values.env.pgvectorPgBigmVersion }}
         - name: PGVECTOR_PORT
           value: {{ quote .Values.env.pgvectorPort }}
         - name: PGVECTOR_POSTGRES_DB
@@ -2044,6 +2092,10 @@ spec:
           value: {{ quote .Values.env.marketplaceApiUrl }}
         - name: MARKETPLACE_URL
           value: {{ quote .Values.env.marketplaceUrl }}
+        - name: MAX_PARALLEL_LIMIT
+          value: {{ quote .Values.env.maxParallelLimit }}
+        - name: MAX_TOOLS_NUM
+          value: {{ quote .Values.env.maxToolsNum }}
         - name: NEXT_TELEMETRY_DISABLED
           value: {{ quote .Values.env.nextTelemetryDisabled }}
         - name: PM2_INSTANCES
@@ -2333,6 +2385,8 @@ spec:
           value: {{ quote .Values.env.httpRequestNodeMaxBinarySize }}
         - name: HTTP_REQUEST_NODE_MAX_TEXT_SIZE
           value: {{ quote .Values.env.httpRequestNodeMaxTextSize }}
+        - name: HTTP_REQUEST_NODE_SSL_VERIFY
+          value: {{ quote .Values.env.httpRequestNodeSslVerify }}
         - name: HUAWEI_OBS_ACCESS_KEY
           value: {{ quote .Values.env.huaweiObsAccessKey }}
         - name: HUAWEI_OBS_BUCKET_NAME
@@ -2379,8 +2433,12 @@ spec:
           value: {{ quote .Values.env.marketplaceApiUrl }}
         - name: MARKETPLACE_ENABLED
           value: {{ quote .Values.env.marketplaceEnabled }}
+        - name: MAX_PARALLEL_LIMIT
+          value: {{ quote .Values.env.maxParallelLimit }}
         - name: MAX_SUBMIT_COUNT
           value: {{ quote .Values.env.maxSubmitCount }}
+        - name: MAX_TOOLS_NUM
+          value: {{ quote .Values.env.maxToolsNum }}
         - name: MAX_VARIABLE_SIZE
           value: {{ quote .Values.env.maxVariableSize }}
         - name: MIGRATION_ENABLED
@@ -2483,6 +2541,20 @@ spec:
           value: {{ quote .Values.env.opendalFsRoot }}
         - name: OPENDAL_SCHEME
           value: {{ quote .Values.env.opendalScheme }}
+        - name: OPENGAUSS_DATABASE
+          value: {{ quote .Values.env.opengaussDatabase }}
+        - name: OPENGAUSS_HOST
+          value: {{ quote .Values.env.opengaussHost }}
+        - name: OPENGAUSS_MAX_CONNECTION
+          value: {{ quote .Values.env.opengaussMaxConnection }}
+        - name: OPENGAUSS_MIN_CONNECTION
+          value: {{ quote .Values.env.opengaussMinConnection }}
+        - name: OPENGAUSS_PASSWORD
+          value: {{ quote .Values.env.opengaussPassword }}
+        - name: OPENGAUSS_PORT
+          value: {{ quote .Values.env.opengaussPort }}
+        - name: OPENGAUSS_USER
+          value: {{ quote .Values.env.opengaussUser }}
         - name: OPENSEARCH_BOOTSTRAP_MEMORY_LOCK
           value: {{ quote .Values.env.opensearchBootstrapMemoryLock }}
         - name: OPENSEARCH_DISCOVERY_TYPE
@@ -2547,6 +2619,10 @@ spec:
           value: {{ quote .Values.env.pgvectorPgdata }}
         - name: PGVECTOR_PGUSER
           value: {{ quote .Values.env.pgvectorPguser }}
+        - name: PGVECTOR_PG_BIGM
+          value: {{ quote .Values.env.pgvectorPgBigm }}
+        - name: PGVECTOR_PG_BIGM_VERSION
+          value: {{ quote .Values.env.pgvectorPgBigmVersion }}
         - name: PGVECTOR_PORT
           value: {{ quote .Values.env.pgvectorPort }}
         - name: PGVECTOR_POSTGRES_DB
